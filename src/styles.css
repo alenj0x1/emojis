@@ -2,3 +2,97 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.title-emoji {
+  @apply 
+    absolute 
+    -top-7 
+    -right-24 
+    text-8xl 
+    -rotate-12 
+    -z-10 
+    drop-shadow-emoji
+}
+
+.btn {
+  @apply 
+    py-3 px-7 
+  bg-neutral-800/75
+  text-neutral-500 
+    font-medium 
+    rounded-md
+    duration-200
+  hover:bg-neutral-800/85
+  active:bg-neutral-800;
+}
+
+.text-gradient {
+  @apply 
+    bg-gradient-to-r
+  from-neutral-800
+  to-red-600/20
+    bg-clip-text 
+    text-transparent;
+}
+
+.input {
+  @apply
+    py-3
+    px-4
+    font-normal
+  text-neutral-500
+  bg-neutral-900/75
+    border-2
+  border-neutral-800/40
+  placeholder-neutral-800
+    outline-none
+    rounded-xl
+}
+
+.input-radius {
+  @apply 
+    w-4
+    h-4
+  bg-neutral-600/5
+    border-2
+  border-neutral-600/5
+    rounded-full
+    appearance-none
+  checked:bg-red-800/25
+  checked:border-red-800/10
+}
+
+.label {
+  @apply 
+    text-normal 
+    flex 
+    gap-2 
+    items-center;
+}
+
+.container {
+  @apply
+    flex
+    flex-col 
+    gap-5
+    p-7
+    my-10
+  bg-neutral-900/75
+    border-2
+  border-neutral-800/40 
+    rounded-md;
+}
+
+.text-medium {
+  @apply 
+    font-semibold
+    text-base
+    text-neutral-500
+}
+
+.text-normal {
+  @apply 
+    font-normal
+    text-sm
+    text-neutral-600
+}

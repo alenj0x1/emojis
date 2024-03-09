@@ -1,1 +1,52 @@
-<p>search works!</p>
+<div class="my-16 flex flex-col">
+  <input class="input" type="text" placeholder="food-and-drink"/>
+
+  <!-- Options -->
+  <div class="container">
+    <!-- Type -->
+    <fieldset>
+      <legend class="text-medium">Type</legend>
+
+      <div class="flex gap-2">
+        <!-- Random -->
+        <label class="label">
+          Random
+          <input class="input-radius" type="radio" name="type-radius" checked/>
+        </label>
+  
+        <!-- All -->
+        <label class="label">
+          All
+          <input class="input-radius" type="radio" name="type-radius"/>
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- On -->
+    <fieldset>
+      <legend class="text-medium">On</legend>
+
+      <div class="flex gap-2">
+        <!-- Category -->
+        <label class="label">
+          Category
+          <input class="input-radius" type="radio" name="on-radius"/>
+        </label>
+  
+        <!-- Group -->
+        <label class="label">
+          Group
+          <input class="input-radius"type="radio" name="on-radius"/>
+        </label>
+  
+        <!-- None -->
+        <label class="label">
+          None
+          <input class="input-radius"type="radio" name="on-radius" checked/>
+        </label>
+      </div>
+    </fieldset>
+  </div>
+
+  <button class="btn">Get emoji</button>
+</div>
