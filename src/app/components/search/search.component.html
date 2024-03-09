@@ -1,5 +1,5 @@
-<div class="my-16 flex flex-col">
-  <input class="input" type="text" placeholder="food-and-drink"/>
+<form class="my-16 flex flex-col" [formGroup]="form">
+  <input [(ngModel)]="userInput" [ngModelOptions]="{standalone: true}" id="userInput" class="input" type="text" placeholder="food-and-drink"/>
 
   <!-- Options -->
   <div class="container">
@@ -11,13 +11,13 @@
         <!-- Random -->
         <label class="label">
           Random
-          <input class="input-radius" type="radio" name="type-radius" checked/>
+          <input formControlName="type" class="input-radius" type="radio" name="type" value="0" checked/>
         </label>
   
         <!-- All -->
         <label class="label">
           All
-          <input class="input-radius" type="radio" name="type-radius"/>
+          <input formControlName="type" class="input-radius" type="radio" value="1" name="type"/>
         </label>
       </div>
     </fieldset>
@@ -30,23 +30,24 @@
         <!-- Category -->
         <label class="label">
           Category
-          <input class="input-radius" type="radio" name="on-radius"/>
+          <input formControlName="on" class="input-radius" type="radio" value="2" name="on"/>
         </label>
   
         <!-- Group -->
         <label class="label">
           Group
-          <input class="input-radius"type="radio" name="on-radius"/>
+          <input formControlName="on" class="input-radius"type="radio" value="1" name="on"/>
         </label>
   
         <!-- None -->
         <label class="label">
           None
-          <input class="input-radius"type="radio" name="on-radius" checked/>
+          <input formControlName="on" class="input-radius"type="radio" name="on" value="0" checked/>
         </label>
       </div>
     </fieldset>
+
   </div>
 
-  <button class="btn">Get emoji</button>
-</div>
+  <button class="btn" (click)="searchEmoji($event)">Get emoji</button>
+</form>
