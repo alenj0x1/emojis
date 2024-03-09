@@ -9,6 +9,7 @@ import { ViewEmojiComponent } from './components/view-emoji/view-emoji.component
 import { NgIconsModule } from '@ng-icons/core';
 import { matSearch } from '@ng-icons/material-icons/baseline'
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
     AppRoutingModule,
     NgIconsModule.withIcons({ matSearch}),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()
