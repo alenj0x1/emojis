@@ -16,6 +16,10 @@
 
 .btn {
   @apply 
+    flex
+    justify-center
+    items-center
+    gap-2
     py-3 px-7 
   bg-neutral-800/75
   text-neutral-500 
@@ -24,6 +28,11 @@
     duration-200
   hover:bg-neutral-800/85
   active:bg-neutral-800;
+}
+
+.icon {
+  @apply
+    text-xl
 }
 
 .text-gradient {
@@ -73,9 +82,6 @@
 .container {
   @apply
     flex
-    flex-col 
-    gap-5
-    p-7
     my-10
   bg-neutral-900/75
     border-2
@@ -95,4 +101,11 @@
     font-normal
     text-sm
     text-neutral-600
+}
+
+.text-large {
+  @apply
+    font-semibold
+    text-2xl
+    text-neutral-500/85
 }

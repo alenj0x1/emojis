@@ -7,8 +7,8 @@ import { SearchComponent } from './components/search/search.component';
 import { ViewEmojiComponent } from './components/view-emoji/view-emoji.component';
 
 import { NgIconsModule } from '@ng-icons/core';
-import { matSearch } from '@ng-icons/material-icons/baseline'
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { matAutoAwesome } from '@ng-icons/material-icons/baseline'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
@@ -20,7 +20,7 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgIconsModule.withIcons({ matSearch}),
+    NgIconsModule.withIcons({ matAutoAwesome }),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

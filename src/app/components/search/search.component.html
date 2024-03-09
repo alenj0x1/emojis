@@ -2,7 +2,7 @@
   <input [(ngModel)]="userInput" [ngModelOptions]="{standalone: true}" id="userInput" class="input" type="text" placeholder="food-and-drink"/>
 
   <!-- Options -->
-  <div class="container">
+  <div class="container gap-5 flex-col p-7">
     <!-- Type -->
     <fieldset>
       <legend class="text-medium">Type</legend>
@@ -49,5 +49,10 @@
 
   </div>
 
-  <button class="btn" (click)="searchEmoji($event)">Get emoji</button>
+  <button class="btn" (click)="searchEmoji($event)">
+    Get emoji
+    <ng-icon name="matAutoAwesome" class="icon"></ng-icon>
+  </button>
+
+  <app-view-emoji [emoji]="emoji"></app-view-emoji>
 </form>
