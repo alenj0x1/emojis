@@ -7,33 +7,39 @@ import { Emoji } from '../interfaces/Emoji.interfaces';
 })
 export class GetDataEmojiService {
   baseURL = 'https://emojihub.yurace.pro/api'
-  dataEmoji: Emoji = {
-    name: '',
-    category: '',
-    group: '',
-    htmlCode: [],
-    unicode: []
-  };
   dataEmojis: Emoji[] = []
 
   constructor(private http: HttpClient) {}
 
-  async getRandomEmoji(): Promise<Emoji> {
+  async getRandomEmoji(): Promise<Emoji[]> {
     /**
      *  this.http.request('GET', this.BASE_URL + 'random', { responseType: 'json'}).subscribe(value => {
      *    this.data = value
      *  })
      */
     await this.fetchApi()
+    
+    return this.dataEmojis
+  }
 
-    return this.dataEmoji
+  async getAllEmojis(): Promise<Emoji[]> {
+    await this.fetchApi('all')
+
+    return this.dataEmojis;
   }
 
   async fetchApi(type: string = 'random', on: string = '', arg?: string) {
     return new Promise<boolean>((resolve, reject) => {
       this.http.get(`${this.baseURL}/${type}/${on}`, { responseType: 'json' }).subscribe({
         next: (res) => {
-          this.dataEmoji = res as Emoji
+          if (Array.isArray(res)) {
+            res.forEach((emoji) => {
+              this.dataEmojis.push(emoji)
+            })
+          } else {
+            this.dataEmojis.push(res as Emoji)
+          }
+
           resolve(true)
         },
         error: () => {

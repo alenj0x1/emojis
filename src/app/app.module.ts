@@ -10,12 +10,14 @@ import { NgIconsModule } from '@ng-icons/core';
 import { matAutoAwesome } from '@ng-icons/material-icons/baseline'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { ContainerEmojisComponent } from './components/container-emojis/container-emojis.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    ViewEmojiComponent
+    ViewEmojiComponent,
+    ContainerEmojisComponent
   ],
   imports: [
     BrowserModule,

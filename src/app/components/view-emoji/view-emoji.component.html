@@ -1,12 +1,13 @@
-<div class="container duration-200 items-center gap-3 py-14 px-7 relative">
+<div class="container duration-200 items-center gap-3 py-14 px-7 relative hover:drop-shadow-custom cursor-pointer hover:-translate-y-2">
   <div [innerHTML]="emoji.htmlCode[0]" class="text-9xl absolute left-0 bottom-0 blur-2xl opacity-15"></div>
+  
   <div>
     <div class="flex flex-col">
-      <ng-icon name="matAutoAwesome" class="text-neutral-700 text-2xl"></ng-icon>
+      <ng-icon name="matAutoAwesome" class="text-neutral-100/75 text-2xl"></ng-icon>
       <span class="text-large min-w-52 max-w-52 text-ellipsis overflow-hidden whitespace-nowrap">{{emoji.name}}</span>
     </div>
     
-    <div>
+    <div class="flex flex-col">
       <span class="text-normal">{{emoji.category}}</span>
       <span class="text-normal">{{emoji.group}}</span>
     </div>

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { GetDataEmojiService } from '../../services/get-data-emoji.service';
 import { Emoji } from '../../interfaces/Emoji.interfaces';
+import { TransferDataEmojiService } from '../../services/transfer-data-emoji.service';
 
 @Component({
   selector: 'app-search',
@@ -9,35 +10,41 @@ import { Emoji } from '../../interfaces/Emoji.interfaces';
   styleUrl: './search.component.css'
 })
 export class SearchComponent implements OnInit {
+  @Input()
+  eventoEmoji: EventEmitter<Emoji|Emoji[]> = new EventEmitter() 
+
   userInput: string = ''
   form = new FormGroup({
     search: new FormControl<string>(''),
     type: new FormControl<string>('0'), // '0' Random - '1' All
     on: new FormControl<string>('0') // '0' None - '1' Group - '2' Category
   })
-  emoji: Emoji;
+  emojis: Emoji[] = [];
 
-  constructor(private getDataEmojiService: GetDataEmojiService) {
-    this.getDataEmojiService.getRandomEmoji()
-    this.emoji = this.getDataEmojiService.dataEmoji
+  constructor(
+    private getDataEmojiService: GetDataEmojiService,
+    private transferDataEmojiService: TransferDataEmojiService
+  ) {
   }
 
   ngOnInit(): void {
-    console.log('Initialized')
+    console.log('Search component initialized')
   }
 
-  searchEmoji(event: MouseEvent) {
-    this.getDataEmojiService.getRandomEmoji()
-    this.emoji = this.getDataEmojiService.dataEmoji
+  async searchEmoji(event: MouseEvent) {
+    if (this.form.value.type === '1')  {
+      await this.getDataEmojiService.getAllEmojis()
+      this.emojis = this.getDataEmojiService.dataEmojis
 
-    const { name, category, group, htmlCode, unicode } = this.emoji
+      this.transferDataEmojiService.trigger.emit(this.emojis)
+      this.eventoEmoji.emit(this.emojis)
+      return;
+    }
 
-    console.log({
-      name,
-      category,
-      group,
-      htmlCode,
-      unicode
-    })
+    await this.getDataEmojiService.getRandomEmoji()
+    this.emojis = this.getDataEmojiService.dataEmojis
+
+    this.transferDataEmojiService.trigger.emit(this.emojis)
+    this.eventoEmoji.emit(this.emojis)
   }
 }

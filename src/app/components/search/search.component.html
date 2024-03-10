@@ -1,8 +1,8 @@
-<form class="my-16 flex flex-col" [formGroup]="form">
-  <input [(ngModel)]="userInput" [ngModelOptions]="{standalone: true}" id="userInput" class="input" type="text" placeholder="food-and-drink"/>
+<form class="flex flex-col max-w-max" [formGroup]="form">
+  <input [(ngModel)]="userInput" [ngModelOptions]="{standalone: true}" id="userInput" class="input mb-10" type="text" placeholder="food-and-drink"/>
 
   <!-- Options -->
-  <div class="container gap-5 flex-col p-7">
+  <div class="container gap-5 flex-col p-7 mb-10">
     <!-- Type -->
     <fieldset>
       <legend class="text-medium">Type</legend>
@@ -46,13 +46,10 @@
         </label>
       </div>
     </fieldset>
-
   </div>
 
   <button class="btn" (click)="searchEmoji($event)">
     Get emoji
     <ng-icon name="matAutoAwesome" class="icon"></ng-icon>
   </button>
-
-  <app-view-emoji [emoji]="emoji"></app-view-emoji>
 </form>

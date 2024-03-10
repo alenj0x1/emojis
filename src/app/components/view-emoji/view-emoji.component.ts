@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Emoji } from '../../interfaces/Emoji.interfaces';
 
 @Component({
@@ -6,7 +6,7 @@ import { Emoji } from '../../interfaces/Emoji.interfaces';
   templateUrl: './view-emoji.component.html',
   styleUrl: './view-emoji.component.css'
 })
-export class ViewEmojiComponent {
+export class ViewEmojiComponent implements OnInit {
   @Input()
   emoji: Emoji = {
     name: '',
@@ -14,5 +14,9 @@ export class ViewEmojiComponent {
     group: '',
     htmlCode: [],
     unicode: []
+  }
+
+  ngOnInit(): void {
+    console.log('View emoji component initialized')
   }
 }
