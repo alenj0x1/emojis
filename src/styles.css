@@ -130,3 +130,19 @@
   dark:from-neutral-950
   dark:to-neutral-900
 }
+
+.icon-copy {
+  @apply
+  absolute
+  left-0
+  right-0
+  mx-auto
+  flex
+  items-center
+  w-24
+  gap-2
+  text-neutral-600
+  dark:text-neutral-500/85
+  text-3xl
+  duration-200
+}

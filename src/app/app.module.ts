@@ -7,7 +7,7 @@ import { SearchComponent } from './components/search/search.component';
 import { ViewEmojiComponent } from './components/view-emoji/view-emoji.component';
 
 import { NgIconsModule } from '@ng-icons/core';
-import { matAutoAwesome, matWbSunny, matDarkMode, matMoreHoriz } from '@ng-icons/material-icons/baseline'
+import { matAutoAwesome, matWbSunny, matDarkMode, matMoreHoriz, matCheck } from '@ng-icons/material-icons/baseline'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { ContainerEmojisComponent } from './components/container-emojis/container-emojis.component';
@@ -24,7 +24,7 @@ import { SetThemeComponent } from './components/set-theme/set-theme.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgIconsModule.withIcons({ matAutoAwesome, matWbSunny, matDarkMode, matMoreHoriz }),
+    NgIconsModule.withIcons({ matAutoAwesome, matWbSunny, matDarkMode, matMoreHoriz, matCheck }),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule

@@ -15,8 +15,26 @@ export class ViewEmojiComponent implements OnInit {
     htmlCode: [],
     unicode: []
   }
+  emojiCopyStyleChanges = {
+    elements: '',
+    check: ''
+  }
 
   ngOnInit(): void {
     console.log('View emoji component initialized')
+  }
+
+  copyEmoji(event: MouseEvent) {
+    navigator.clipboard.writeText(this.emoji.htmlCode[0])
+      .then(() => {
+        this.emojiCopyStyleChanges.elements = 'opacity-20 blur-sm duration-150'
+        this.emojiCopyStyleChanges.check = 'opacity-100'
+    
+        setTimeout(() => {
+          this.emojiCopyStyleChanges.elements = 'opacity-100'
+          this.emojiCopyStyleChanges.check = 'opacity-0'
+        }, 500);
+      })
+      .catch()
   }
 }
