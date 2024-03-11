@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { ContainerEmojisComponent } from './components/container-emojis/container-emojis.component';
 import { SetThemeComponent } from './components/set-theme/set-theme.component';
+import { PresentationComponent } from './components/presentation/presentation.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SetThemeComponent } from './components/set-theme/set-theme.component';
     SearchComponent,
     ViewEmojiComponent,
     ContainerEmojisComponent,
-    SetThemeComponent
+    SetThemeComponent,
+    PresentationComponent
   ],
   imports: [
     BrowserModule,
