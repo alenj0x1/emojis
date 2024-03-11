@@ -1,5 +1,7 @@
 # 🍜 Emojis
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5f662b89-f910-4e08-b50e-0b194304cfdd/deploy-status)](https://app.netlify.com/sites/emojisangular/deploys)
+
 Discover a new emoji that you may have never seen before or take a look at a whole range of emojis.
 
 This project uses [EmojiHub](https://github.com/cheatsnake/emojihub), take a look 🐱. Thank you very much to [cheatsnake](https://github.com/cheatsnake).
