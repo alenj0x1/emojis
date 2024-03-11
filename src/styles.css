@@ -11,7 +11,7 @@
     text-8xl 
     -rotate-12 
     -z-10 
-    drop-shadow-emoji
+    dark:drop-shadow-emoji
 }
 
 .btn {
@@ -21,13 +21,17 @@
     items-center
     gap-2
     py-3 px-7 
-  bg-red-900/80
-  text-neutral-400 
+    bg-red-600
+    text-neutral-50
     font-medium 
     rounded-md
     duration-200
-  hover:bg-red-800/60
-  active:bg-red-800/50;
+    hover:bg-red-600/90
+    active:bg-red-600/80
+    dark:hover:bg-red-800/60
+    dark:active:bg-red-800/50
+    dark:bg-red-900/80
+    dark:text-neutral-400
 }
 
 .icon {
@@ -36,10 +40,12 @@
 }
 
 .text-gradient {
-  @apply 
+  @apply
     bg-gradient-to-r
-  from-neutral-800
-  to-red-600/20
+    from-red-500
+    to-red-600
+    dark:from-neutral-900
+    dark:to-red-600/20
     bg-clip-text 
     text-transparent;
 }
@@ -49,26 +55,30 @@
     py-3
     px-4
     font-normal
-  text-neutral-500
-  bg-neutral-900/75
-    border-2
-  border-neutral-800/40
-  placeholder-neutral-800
+    shadow
+    bg-transparent
+    placeholder-neutral-200
     outline-none
-    rounded-xl
+    rounded-md
+    dark:bg-neutral-900/75
+    dark:border-neutral-800/40
+    dark:placeholder-neutral-800
 }
 
 .input-radius {
   @apply 
     w-4
     h-4
-  bg-neutral-600/5
+    bg-neutral-600/5
     border-2
-  border-neutral-600/5
+    border-neutral-600/5
     rounded-full
     appearance-none
-  checked:bg-red-800/25
-  checked:border-red-800/10
+    cursor-pointer
+    checked:border-red-500/50
+    checked:bg-red-100
+    dark:checked:bg-red-800/25
+    dark:checked:border-red-800/10
 }
 
 .label {
@@ -82,29 +92,41 @@
 .container {
   @apply
     flex
-  bg-neutral-900/75
-    border-2
-  border-neutral-800/40 
-    rounded-md;
+    shadow
+    rounded-md
+    dark:bg-neutral-900/75
+    dark:border-neutral-800/40
 }
 
 .text-medium {
   @apply 
     font-semibold
     text-base
-    text-neutral-500
+    text-neutral-700
+    dark:text-neutral-500
 }
 
 .text-normal {
   @apply 
     font-normal
     text-sm
-    text-neutral-600
+    text-neutral-500
+    dark:text-neutral-600
 }
 
 .text-large {
   @apply
     font-semibold
     text-2xl
-    text-neutral-500/85
+    text-neutral-600
+    dark:text-neutral-500/85
+}
+
+.background {
+  @apply
+  bg-gradient-to-b
+  from-neutral-100
+  to-neutral-50
+  dark:from-neutral-950
+  dark:to-neutral-900
 }

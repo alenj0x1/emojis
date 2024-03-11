@@ -1,5 +1,5 @@
-<div class="container duration-200 items-center gap-3 py-14 px-7 relative hover:drop-shadow-custom cursor-pointer hover:-translate-y-2">
-  <div [innerHTML]="emoji.htmlCode[0]" class="text-9xl absolute left-0 bottom-0 blur-2xl opacity-15"></div>
+<div class="container duration-200 items-center gap-3 py-14 px-7 relative dark:hover:drop-shadow-custom cursor-pointer hover:-translate-y-2">
+  <div [innerHTML]="emoji.htmlCode[0]" class="opacity-0 text-9xl absolute left-0 bottom-0 blur-2xl dark:opacity-15"></div>
   
   <div>
     <div class="flex flex-col">
@@ -16,6 +16,6 @@
   <div class="relative">
     <span class="text-6xl" [innerHTML]="emoji.htmlCode[0]"></span>
 
-    <span class="text-6xl blur-2xl opacity-30 absolute left-0" [innerHTML]="emoji.htmlCode[0]"></span>
+    <span class="opacity-0 text-6xl blur-2xl dark:opacity-30 absolute left-0" [innerHTML]="emoji.htmlCode[0]"></span>
   </div>
 </div>

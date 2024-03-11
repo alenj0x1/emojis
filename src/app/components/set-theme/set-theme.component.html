@@ -1,0 +1,5 @@
+<button class="container p-2" (click)="changeTheme()">
+  <ng-icon *ngIf="currentTheme === 'loading'" name="matMoreHoriz" class="text-large"></ng-icon>
+  <ng-icon *ngIf="currentTheme === 'light'" name="matDarkMode" class="text-large"></ng-icon>
+  <ng-icon *ngIf="currentTheme === 'dark'" name="matWbSunny" class="text-large"></ng-icon>
+</button>
