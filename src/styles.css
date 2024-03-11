@@ -81,6 +81,12 @@
     dark:checked:border-red-800/10
 }
 
+.option {
+  @apply
+  bg-neutral-100
+  dark:bg-neutral-900
+}
+
 .label {
   @apply 
     text-normal 

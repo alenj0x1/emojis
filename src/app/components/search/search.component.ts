@@ -1,8 +1,16 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { 
+  Component, 
+  EventEmitter, 
+  Input, 
+  OnInit, 
+  Output 
+} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { GetDataEmojiService } from '../../services/get-data-emoji.service';
 import { Emoji } from '../../interfaces/Emoji.interfaces';
 import { TransferDataEmojiService } from '../../services/transfer-data-emoji.service';
+import { Categories, Groups } from '../../util/consts';
+import { searchOn, searchType } from '../../util/enums';
 
 @Component({
   selector: 'app-search',
@@ -15,9 +23,9 @@ export class SearchComponent implements OnInit {
 
   userInput: string = ''
   form = new FormGroup({
-    search: new FormControl<string>(''),
-    type: new FormControl<string>('0'), // '0' Random - '1' All
-    on: new FormControl<string>('0') // '0' None - '1' Group - '2' Category
+    type: new FormControl<string>(searchType.random),
+    on: new FormControl<string>(searchOn.none),
+    option: new FormControl<string>('')
   })
   emojis: Emoji[] = [];
 
@@ -32,19 +40,25 @@ export class SearchComponent implements OnInit {
   }
 
   async searchEmoji(event: MouseEvent) {
-    if (this.form.value.type === '1')  {
-      await this.getDataEmojiService.getAllEmojis()
-      this.emojis = this.getDataEmojiService.dataEmojis
+    const {
+      type,
+      on,
+      option
+    } = this.form.value
+    const { dataEmojis } = this.getDataEmojiService
+    const { trigger } = this.transferDataEmojiService
 
-      this.transferDataEmojiService.trigger.emit(this.emojis)
-      this.eventoEmoji.emit(this.emojis)
-      return;
-    }
+    await this.getDataEmojiService.fetchApi(type === '0' ? searchType.random : searchType.all, on, option)
+    this.emojis = dataEmojis
 
-    await this.getDataEmojiService.getRandomEmoji()
-    this.emojis = this.getDataEmojiService.dataEmojis
-
-    this.transferDataEmojiService.trigger.emit(this.emojis)
+    trigger.emit(this.emojis)
     this.eventoEmoji.emit(this.emojis)
+  }
+
+  getSelectOptions(): string[] {
+    // Group
+    if (this.form.value.on === '1') return Groups
+
+    return Categories
   }
 }

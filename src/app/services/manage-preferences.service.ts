@@ -37,7 +37,6 @@ export class ManagePreferencesService {
     const getTheme = this.localStorage?.getItem('theme')
     
     if (!getTheme) {
-      console.log(getTheme)
       this.localStorage?.setItem('theme', 'dark')
       return 'dark'
     }

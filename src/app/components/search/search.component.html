@@ -1,5 +1,9 @@
 <form class="flex flex-col max-w-max" [formGroup]="form">
-  <input [(ngModel)]="userInput" [ngModelOptions]="{standalone: true}" id="userInput" class="input mb-10" type="text" placeholder="food-and-drink"/>
+  <select formControlName="option" name="option" class="input mb-10 text-normal" *ngIf="form.value.on !== '0'">
+    <option class="option" *ngFor="let option of getSelectOptions()" value="{{option}}">
+      {{option}}
+    </option>
+  </select>
 
   <!-- Options -->
   <div class="container gap-5 flex-col p-7 mb-10">

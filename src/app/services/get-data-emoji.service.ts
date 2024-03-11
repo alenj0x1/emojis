@@ -1,36 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Emoji } from '../interfaces/Emoji.interfaces';
+import { baseURL } from '../util/consts';
+import { searchOn } from '../util/enums';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetDataEmojiService {
-  baseURL = 'https://emojihub.yurace.pro/api'
   dataEmojis: Emoji[] = []
 
   constructor(private http: HttpClient) {}
 
-  async getRandomEmoji(): Promise<Emoji[]> {
-    /**
-     *  this.http.request('GET', this.BASE_URL + 'random', { responseType: 'json'}).subscribe(value => {
-     *    this.data = value
-     *  })
-     */
-    await this.fetchApi()
-    
-    return this.dataEmojis
-  }
+  async fetchApi(type: string, on: string|null|undefined = '', option: string|null|undefined) {
+    const onParsed = this.onParser(on)
+    const requestURL = `${baseURL}/${type}/${onParsed && option ? onParsed + '/' + option : '' }`
 
-  async getAllEmojis(): Promise<Emoji[]> {
-    await this.fetchApi('all')
-
-    return this.dataEmojis;
-  }
-
-  async fetchApi(type: string = 'random', on: string = '', arg?: string) {
     return new Promise<boolean>((resolve, reject) => {
-      this.http.get(`${this.baseURL}/${type}/${on}`, { responseType: 'json' }).subscribe({
+      this.http.get(requestURL, { responseType: 'json' }).subscribe({
         next: (res) => {
           if (Array.isArray(res)) {
             res.forEach((emoji) => {
@@ -47,5 +34,11 @@ export class GetDataEmojiService {
         }
       })
     })
+  }
+
+  onParser(on: string|null) {
+    return on === '1' ? searchOn.group
+      : on === '2' ? searchOn.category
+      : ''
   }
 }
