@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
+import { themePreferences } from '../util/enums';
 
 @Injectable({
   providedIn: 'root'
@@ -37,14 +38,14 @@ export class ManagePreferencesService {
     const getTheme = this.localStorage?.getItem('theme')
     
     if (!getTheme) {
-      this.localStorage?.setItem('theme', 'dark')
-      return 'dark'
+      this.localStorage?.setItem('theme', themePreferences.dark)
+      return themePreferences.dark
     }
 
     return getTheme
   }
 
   getThemeOptions(theme?: string|null): string {
-    return theme === 'dark' ? 'light' : 'dark'
+    return theme === themePreferences.dark ? themePreferences.light : themePreferences.dark
   }
 }

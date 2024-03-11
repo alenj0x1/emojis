@@ -10,7 +10,7 @@ import { GetDataEmojiService } from '../../services/get-data-emoji.service';
 import { Emoji } from '../../interfaces/Emoji.interfaces';
 import { TransferDataEmojiService } from '../../services/transfer-data-emoji.service';
 import { Categories, Groups } from '../../util/consts';
-import { searchOn, searchType } from '../../util/enums';
+import { searchOnValues, searchTypeNames, searchTypeValues } from '../../util/enums';
 
 @Component({
   selector: 'app-search',
@@ -23,8 +23,8 @@ export class SearchComponent implements OnInit {
 
   userInput: string = ''
   form = new FormGroup({
-    type: new FormControl<string>(searchType.random),
-    on: new FormControl<string>(searchOn.none),
+    type: new FormControl<string>(searchTypeValues.random),
+    on: new FormControl<string>(searchOnValues.none),
     option: new FormControl<string>('')
   })
   emojis: Emoji[] = [];
@@ -48,7 +48,7 @@ export class SearchComponent implements OnInit {
     const { dataEmojis } = this.getDataEmojiService
     const { trigger } = this.transferDataEmojiService
 
-    await this.getDataEmojiService.fetchApi(type === '0' ? searchType.random : searchType.all, on, option)
+    await this.getDataEmojiService.fetchApi(type === '0' ? searchTypeNames.random : searchTypeNames.all, on, option)
     this.emojis = dataEmojis
 
     trigger.emit(this.emojis)

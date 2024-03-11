@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Emoji } from '../interfaces/Emoji.interfaces';
 import { baseURL } from '../util/consts';
-import { searchOn } from '../util/enums';
+import { searchOnNames } from '../util/enums';
 
 @Injectable({
   providedIn: 'root'
@@ -37,8 +37,8 @@ export class GetDataEmojiService {
   }
 
   onParser(on: string|null) {
-    return on === '1' ? searchOn.group
-      : on === '2' ? searchOn.category
+    return on === '1' ? searchOnNames.group
+      : on === '2' ? searchOnNames.category
       : ''
   }
 }
