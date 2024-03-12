@@ -9,6 +9,7 @@ import { TransferDataEmojiService } from '../../services/transfer-data-emoji.ser
 })
 export class ContainerEmojisComponent implements OnInit {
   emojisContainer: Emoji[] = []
+  directionCurrent: boolean = false
 
   constructor(private transferDataEmojiService: TransferDataEmojiService) { }
 
@@ -19,4 +20,9 @@ export class ContainerEmojisComponent implements OnInit {
       this.emojisContainer = data
     })
   }
+
+    changeDirection(direction: boolean) {
+      console.log(this.directionCurrent)
+      this.directionCurrent = direction
+    }
 }

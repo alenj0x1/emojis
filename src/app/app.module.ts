@@ -12,7 +12,8 @@ import {
   matWbSunny, 
   matDarkMode, 
   matMoreHoriz, 
-  matCheck 
+  matCheck,
+  matCompareArrows
 } from '@ng-icons/material-icons/baseline'
 import { ionLogoGithub } from '@ng-icons/ionicons'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,6 +22,7 @@ import { ContainerEmojisComponent } from './components/container-emojis/containe
 import { SetThemeComponent } from './components/set-theme/set-theme.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
 import { GithubComponent } from './components/github/github.component';
+import { ChangeViewComponent } from './components/change-view/change-view.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { GithubComponent } from './components/github/github.component';
     ContainerEmojisComponent,
     SetThemeComponent,
     PresentationComponent,
-    GithubComponent
+    GithubComponent,
+    ChangeViewComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { GithubComponent } from './components/github/github.component';
       matDarkMode, 
       matMoreHoriz, 
       matCheck,
-      ionLogoGithub
+      ionLogoGithub,
+      matCompareArrows
     }),
     FormsModule,
     ReactiveFormsModule,

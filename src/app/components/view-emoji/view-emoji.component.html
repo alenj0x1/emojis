@@ -1,4 +1,4 @@
-<div (click)="copyEmoji($event)" class="container duration-150 items-center gap-3 py-14 px-7 relative dark:hover:drop-shadow-custom cursor-pointer hover:-translate-y-2">
+<div (click)="copyEmoji($event)" class="container w-[350px] max-w-[350px] duration-150 items-center gap-3 py-14 px-7 relative dark:hover:drop-shadow-custom cursor-pointer hover:-translate-y-2">
   <div [innerHTML]="emoji.htmlCode[0]" class="opacity-0 text-9xl absolute left-0 bottom-0 blur-2xl dark:opacity-15"></div>
   
   <div class="{{emojiCopyStyleChanges.elements}} {{emojiCopyStyleChanges.elements}}">

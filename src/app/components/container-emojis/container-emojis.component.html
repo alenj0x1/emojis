@@ -1,3 +1,9 @@
-<div *ngFor="let emoji of emojisContainer">
-  <app-view-emoji [emoji]="emoji"></app-view-emoji>
+<div class="flex flex-col items-center mt-10">
+  <app-change-view *ngIf="emojisContainer.length > 0" (directionChanged)="changeDirection($event)"></app-change-view>
+  
+  <div class="flex flex-wrap gap-10 my-10 mx-16 justify-center {{directionCurrent === true ? 'flex-row-reverse' : 'flex-row'}}">
+    <div *ngFor="let emoji of emojisContainer">
+      <app-view-emoji [emoji]="emoji"></app-view-emoji>
+    </div>
+  </div>
 </div>
