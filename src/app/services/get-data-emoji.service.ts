@@ -18,12 +18,14 @@ export class GetDataEmojiService {
 
     return new Promise<boolean>((resolve, reject) => {
       this.http.get(requestURL, { responseType: 'json' }).subscribe({
-        next: (res) => {
+        next: (res: any) => {
           if (Array.isArray(res)) {
             res.forEach((emoji) => {
+              emoji.id = this.dataEmojis.length + 1
               this.dataEmojis.push(emoji)
             })
           } else {
+            res.id = this.dataEmojis.length + 1
             this.dataEmojis.push(res as Emoji)
           }
 

@@ -13,7 +13,11 @@ import {
   matDarkMode, 
   matMoreHoriz, 
   matCheck,
-  matCompareArrows
+  matCompareArrows,
+  matStar,
+  matStarOutline,
+  matContentCopy,
+  matCode
 } from '@ng-icons/material-icons/baseline'
 import { ionLogoGithub } from '@ng-icons/ionicons'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -45,7 +49,11 @@ import { ChangeViewComponent } from './components/change-view/change-view.compon
       matMoreHoriz, 
       matCheck,
       ionLogoGithub,
-      matCompareArrows
+      matCompareArrows,
+      matStar,
+      matStarOutline,
+      matContentCopy,
+      matCode
     }),
     FormsModule,
     ReactiveFormsModule,

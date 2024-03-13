@@ -1,26 +1,32 @@
-<div (click)="copyEmoji($event)" class="container w-[350px] max-w-[350px] duration-150 items-center gap-3 py-14 px-7 relative dark:hover:drop-shadow-custom cursor-pointer hover:-translate-y-2">
-  <div [innerHTML]="emoji.htmlCode[0]" class="opacity-0 text-9xl absolute left-0 bottom-0 blur-2xl dark:opacity-15"></div>
+<div class="container w-[350px] max-w-[350px] duration-150 items-center gap-3 py-7 px-7 relative">
+  <div [innerHTML]="emoji.htmlCode[0]" class="opacity-0 text-9xl absolute left-0 bottom-0 blur-2xl dark:opacity-15 select-none"></div>
   
-  <div class="{{emojiCopyStyleChanges.elements}} {{emojiCopyStyleChanges.elements}}">
+  <div class="{{copyStyle.elements}} {{copyStyle.elements}}">
     <div class="flex flex-col">
-      <ng-icon name="matAutoAwesome" class="text-neutral-100/75 text-2xl"></ng-icon>
+      <ng-icon name="matAutoAwesome" class="text-neutral-100/75 text-xl"></ng-icon>
       <span class="text-large min-w-52 max-w-52 text-ellipsis overflow-hidden whitespace-nowrap">{{emoji.name}}</span>
     </div>
     
-    <div class="flex flex-col {{emojiCopyStyleChanges.elements}}">
+    <div class="flex flex-col {{copyStyle.elements}}">
       <span class="text-normal">{{emoji.category}}</span>
       <span class="text-normal">{{emoji.group}}</span>
+
+      <div class="flex gap-3 z-10">
+        <ng-icon (click)="''" name="matStarOutline" class="icon-interaction"></ng-icon>
+        <ng-icon (click)="copyHTML()" name="matCode" class="icon-interaction"></ng-icon>
+        <ng-icon (click)="copyEmoji(emoji.id)" name="matContentCopy" class="icon-interaction"></ng-icon>
+      </div>
     </div>
   </div>
 
-  <div class="relative {{emojiCopyStyleChanges.elements}}">
-    <span class="text-6xl" [innerHTML]="emoji.htmlCode[0]"></span>
+  <div class="relative {{copyStyle.elements}}">
+    <span id="emoji-{{emoji.id}}" class="text-6xl" [innerHTML]="emoji.htmlCode[0]"></span>
 
-    <span class="opacity-0 text-6xl blur-2xl dark:opacity-30 absolute left-0" [innerHTML]="emoji.htmlCode[0]"></span>
+    <span class="opacity-0 text-6xl blur-2xl dark:opacity-30 absolute left-0 select-none" [innerHTML]="emoji.htmlCode[0]"></span>
   </div>
 
-  <div class="icon-copy opacity-0 {{emojiCopyStyleChanges.check}}">
-    <span class="text-medium">Copied</span>
+  <div class="icon-copy opacity-0 {{copyStyle.check}}">
+    <span class="text-medium">{{copyStyle.text}}</span>
     <ng-icon name="matCheck"></ng-icon>
   </div>
 </div>

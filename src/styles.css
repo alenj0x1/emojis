@@ -134,10 +134,20 @@
   mx-auto
   flex
   items-center
-  w-24
+  w-36
   gap-2
   text-neutral-600
   dark:text-neutral-500/85
   text-3xl
   duration-200
+}
+
+.icon-interaction {
+  @apply
+  mt-5
+  text-2xl
+  cursor-pointer
+  text-neutral-700
+  hover:opacity-75
+  dark:text-neutral-500
 }
